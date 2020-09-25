@@ -20,6 +20,19 @@ module.exports = {
   /*
   ** Build configuration
   */
+  // ↓↓↓ デフォルトの末尾に追記 ↓↓↓
+   modules: [
+    '@nuxtjs/axios',
+  ],
+  axios: {
+
+  },
+  plugins: [
+    '~/plugins/axios.js'
+  ],
+  env: {
+    QIITA_TOKEN: process.env.QIITA_TOKEN
+  },
   build: {
     /*
     ** Run ESLint on save
@@ -34,6 +47,6 @@ module.exports = {
         })
       }
     }
-  }
+  },
 }
 
