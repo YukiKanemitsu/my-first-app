@@ -2,31 +2,34 @@
   <section class="container">
     <div>
       <h2>
-        index page
+        ログインページ
       </h2>
-      <ul>
-        <li>
-          <nuxt-link to="/login">
-            ログインページへ
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to="/authed-route">
-            認証が必要なページへ
-          </nuxt-link>
-        </li>
-      </ul>
+      <p>
+        <button type="button" @click="login">
+          ログイン
+        </button>
+
+        <br>
+
+        <nuxt-link to="/">
+          トップページへ戻る
+        </nuxt-link>
+      </p>
     </div>
   </section>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+import Cookies from 'universal-cookie'
 
 export default {
-  components: {
-    AppLogo
-  }
+	methods: {
+		login() {
+			const cookies = new Cookies()
+      cookies.set('credential', 'true', { maxAge: 90 })
+      this.$router.push('/')
+		}
+	}
 }
 </script>
 

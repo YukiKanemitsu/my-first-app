@@ -21,14 +21,20 @@ module.exports = {
   /*
   ** Build configuration
   */
-   modules: [
+  modules: [
     '@nuxtjs/axios',
   ],
   axios: {
 
   },
+  router: {
+    middleware: [
+      'auth'
+    ]
+  },
   plugins: [
-    '~/plugins/axios.js'
+    { src: '~/plugins/axios', },
+    { src: '~/plugins/logger', ssr: true },
   ],
   env: {
     QIITA_TOKEN: process.env.a1f36196f9f250713b1d051b7b9bd5b4ada6ef0b
